@@ -2,8 +2,8 @@
 
 namespace Armancodes\DownloadLink;
 
-use Illuminate\Support\ServiceProvider;
 use Armancodes\DownloadLink\Commands\DownloadLinkCommand;
+use Illuminate\Support\ServiceProvider;
 
 class DownloadLinkServiceProvider extends ServiceProvider
 {

@@ -2,8 +2,8 @@
 
 namespace Armancodes\DownloadLink\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use Armancodes\DownloadLink\DownloadLinkServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
