@@ -2,7 +2,7 @@
 
 namespace Armancodes\DownloadLink;
 
-use Armancodes\DownloadLink\Commands\DownloadLinkCommand;
+use Armancodes\DownloadLink\Commands\RemoveExpiredDownloadLinksCommand;
 use Illuminate\Support\ServiceProvider;
 
 class DownloadLinkServiceProvider extends ServiceProvider
@@ -26,7 +26,7 @@ class DownloadLinkServiceProvider extends ServiceProvider
             }
 
             $this->commands([
-                DownloadLinkCommand::class,
+                RemoveExpiredDownloadLinksCommand::class,
             ]);
         }
 
@@ -36,6 +36,10 @@ class DownloadLinkServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/download-link.php', 'download-link');
+
+        $this->app->bind('downloadLinkGenerator', function(){
+            return new DownloadLinkGenerator;
+        });
     }
 
     public static function migrationFileExists(string $migrationFileName): bool

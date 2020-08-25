@@ -50,7 +50,7 @@
                 "Armancodes\\DownloadLink\\DownloadLinkServiceProvider"
             ],
             "aliases": {
-                "DownloadLink": "Armancodes\\DownloadLink\\DownloadLinkFacade"
+                "DownloadLink": "Armancodes\\DownloadLink\\Facades\\DownloadLinkGenerator"
             }
         }
     },

@@ -2,6 +2,6 @@
 
 namespace Armancodes\DownloadLink;
 
-class DownloadLink
+class DownloadLinkGenerator
 {
 }
