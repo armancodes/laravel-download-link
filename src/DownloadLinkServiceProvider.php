@@ -37,7 +37,7 @@ class DownloadLinkServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../config/download-link.php', 'download-link');
 
-        $this->app->bind('downloadLinkGenerator', function(){
+        $this->app->bind('downloadLinkGenerator', function () {
             return new DownloadLinkGenerator;
         });
     }

@@ -17,6 +17,7 @@ class RemoveExpiredDownloadLinksCommand extends Command
 
         if (! $deletedDownloadLinks) {
             $this->warn('No expired download link found!');
+
             return;
         }
 
