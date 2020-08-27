@@ -15,18 +15,17 @@ class CreateDownloadLinksTable extends Migration
             $table->string('file_path');
             $table->boolean('auth_only');
             $table->boolean('guest_only');
-            $table->integer('try_limit')->nullable();
+            $table->unsignedInteger('try_limit')->nullable();
+            $table->unsignedInteger('remaining_tries')->nullable();
             $table->dateTime('expire_time')->nullable();
             $table->timestamps();
         });
 
         Schema::create('download_link_ip_addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('download_link_id');
+            $table->foreignId('download_link_id')->constrained()->onDelete('cascade');
             $table->ipAddress('ip_address');
             $table->boolean('allowed');
-
-            $table->foreign('download_link_id')->references('id')->on('download_links')->onDelete('cascade');
         });
     }
 
