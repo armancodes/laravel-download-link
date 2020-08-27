@@ -140,7 +140,7 @@ class DownloadLinkGenerator
 
     private function fileExists(): void
     {
-        if (!Storage::disk($this->disk)->exists($this->filePath)) {
+        if (! Storage::disk($this->disk)->exists($this->filePath)) {
             throw new Exception("File not found!");
         }
     }
