@@ -10,6 +10,8 @@ class DownloadLinkIpAddress extends Model
 
     protected $table = "download_link_ip_addresses";
 
+    public $timestamps = false;
+
     public function downloadLink()
     {
         return $this->belongsTo(DownloadLink::class);
