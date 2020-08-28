@@ -16,6 +16,7 @@
     </projectFiles>
 
     <issueHandlers>
+        <UndefinedInterfaceMethod errorLevel="suppress" />
     </issueHandlers>
 
     <plugins>
