@@ -1,6 +1,6 @@
 {
     "name": "armancodes/laravel-download-link",
-    "description": "A Laravel package for generating download links with options such as expire time, try limit, IP restrictions, etc.",
+    "description": "A simple Laravel package for generating download links with options such as expire time, IP restrictions, etc.",
     "keywords": [
         "armancodes",
         "laravel-download-link"

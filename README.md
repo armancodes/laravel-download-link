@@ -1,7 +1,7 @@
-# Generate download links with many options
+# Generate download links in your Laravel applications
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/armancodes/laravel-download-link.svg?style=flat-square)](https://packagist.org/packages/armancodes/laravel-download-link)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/armancodes/laravel-download-link/run-tests?label=tests)](https://github.com/armancodes/laravel-download-link/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/armancodes/laravel-download-link/Tests?label=tests)](https://github.com/armancodes/laravel-download-link/actions?query=workflow%3ATests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/armancodes/laravel-download-link.svg?style=flat-square)](https://packagist.org/packages/armancodes/laravel-download-link)
 
 
@@ -18,19 +18,13 @@ You can publish and run the migrations with:
 
 ```bash
 php artisan vendor:publish --provider="Armancodes\DownloadLink\DownloadLinkServiceProvider" --tag="migrations"
+
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
 php artisan vendor:publish --provider="Armancodes\DownloadLink\DownloadLinkServiceProvider" --tag="config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
 ```
 
 ## Usage

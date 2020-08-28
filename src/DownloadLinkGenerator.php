@@ -13,10 +13,10 @@ use Illuminate\Support\Str;
 class DownloadLinkGenerator
 {
     private $filePath;
+    private $fileName;
     private $disk;
     private $authOnly;
     private $guestOnly;
-    private $tryLimit;
     private $expireTime;
     private $limitIp;
     private $allowIp;
@@ -30,6 +30,13 @@ class DownloadLinkGenerator
     public function filePath(string $filePath)
     {
         $this->filePath = $filePath;
+
+        return $this;
+    }
+
+    public function fileName(string $fileName)
+    {
+        $this->fileName = $fileName;
 
         return $this;
     }
@@ -53,13 +60,6 @@ class DownloadLinkGenerator
     {
         $this->guestOnly = true;
         $this->authOnly = false;
-
-        return $this;
-    }
-
-    public function tries(int $tryLimit)
-    {
-        $this->tryLimit = $tryLimit;
 
         return $this;
     }
@@ -118,9 +118,11 @@ class DownloadLinkGenerator
             $this->createIpAddressForDownloadLink($ip, $downloadLinkId, true);
         });
 
-        $limitedIps->each(function ($ip, $key) use ($downloadLinkId) {
-            $this->createIpAddressForDownloadLink($ip, $downloadLinkId);
-        });
+        if (! $allowedIps->all()) {
+            $limitedIps->each(function ($ip, $key) use ($downloadLinkId) {
+                $this->createIpAddressForDownloadLink($ip, $downloadLinkId);
+            });
+        }
     }
 
     private function createIpAddressForDownloadLink($ip, int $downloadLinkId, $allowed = false)
@@ -164,10 +166,9 @@ class DownloadLinkGenerator
             'link' => Str::random(64),
             'disk' => $this->disk,
             'file_path' => $this->filePath,
+            'file_name' => $this->fileName,
             'auth_only' => $this->authOnly,
             'guest_only' => $this->guestOnly,
-            'try_limit' => $this->tryLimit,
-            'remaining_tries' => $this->tryLimit,
             'expire_time' => $expireTime,
         ]);
     }
@@ -184,6 +185,10 @@ class DownloadLinkGenerator
 
         if (! config('filesystems.disks.' . $this->disk)) {
             throw new Exception("Disk is NOT valid!");
+        }
+
+        if (! $this->fileName) {
+            $this->fileName = array_reverse(explode('/', $this->filePath))[0];
         }
     }
 }
