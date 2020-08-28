@@ -22,9 +22,7 @@ class DownloadLinkController
 
         $this->ipIsAllowed($downloadLink);
 
-        $storagePath = Storage::disk($downloadLink->disk)->getDriver()->getAdapter()->getPathPrefix();
-
-        return response()->download($storagePath . $downloadLink->file_path, $downloadLink->file_name);
+        return response()->download(Storage::disk($downloadLink->disk)->path($downloadLink->file_path), $downloadLink->file_name);
     }
 
     private function fileExists($downloadLink)
@@ -68,11 +66,11 @@ class DownloadLinkController
         $limitedIps = $downloadLinkIps->where('allowed', false);
 
         if ($allowedIps->isNotEmpty()) {
-            abort_unless($allowedIps->where('ip_address', request()->ip())->first(), 403);
+            abort_if($allowedIps->where('ip_address', request()->ip())->isEmpty(), 403);
         }
 
         if ($limitedIps->isNotEmpty()) {
-            abort_if($allowedIps->where('ip_address', request()->ip())->first(), 403);
+            abort_if($limitedIps->where('ip_address', request()->ip())->isNotEmpty(), 403);
         }
     }
 
