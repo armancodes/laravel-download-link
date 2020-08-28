@@ -17,7 +17,6 @@ class DownloadLinkGenerator
     private $disk;
     private $authOnly;
     private $guestOnly;
-    private $tryLimit;
     private $expireTime;
     private $limitIp;
     private $allowIp;
@@ -61,13 +60,6 @@ class DownloadLinkGenerator
     {
         $this->guestOnly = true;
         $this->authOnly = false;
-
-        return $this;
-    }
-
-    public function tries(int $tryLimit)
-    {
-        $this->tryLimit = $tryLimit;
 
         return $this;
     }
@@ -177,8 +169,6 @@ class DownloadLinkGenerator
             'file_name' => $this->fileName,
             'auth_only' => $this->authOnly,
             'guest_only' => $this->guestOnly,
-            'try_limit' => $this->tryLimit,
-            'remaining_tries' => $this->tryLimit,
             'expire_time' => $expireTime,
         ]);
     }
