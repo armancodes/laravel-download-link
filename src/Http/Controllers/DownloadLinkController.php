@@ -22,7 +22,7 @@ class DownloadLinkController
 
         $this->ipIsAllowed($downloadLink);
 
-        $storagePath  = Storage::disk($downloadLink->disk)->getDriver()->getAdapter()->getPathPrefix();
+        $storagePath = Storage::disk($downloadLink->disk)->getDriver()->getAdapter()->getPathPrefix();
 
         return response()->download($storagePath . $downloadLink->file_path, $downloadLink->file_name);
     }
