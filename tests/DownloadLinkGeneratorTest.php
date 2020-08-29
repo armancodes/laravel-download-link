@@ -8,7 +8,6 @@ use Armancodes\DownloadLink\Models\DownloadLinkIpAddress;
 use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\UploadedFile;
 
 class DownloadLinkGeneratorTest extends TestCase
 {
