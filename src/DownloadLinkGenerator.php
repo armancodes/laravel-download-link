@@ -21,6 +21,8 @@ class DownloadLinkGenerator
     private $limitIp;
     private $allowIp;
 
+    const DOWNLOAD_LINK_NUMBER_OF_CHARACTERS = 64;
+
     public function __construct()
     {
         $this->authOnly = false;
@@ -163,7 +165,7 @@ class DownloadLinkGenerator
         $expireTime = Carbon::make($this->expireTime);
 
         return DownloadLink::create([
-            'link' => Str::random(64),
+            'link' => Str::random(self::DOWNLOAD_LINK_NUMBER_OF_CHARACTERS),
             'disk' => $this->disk,
             'file_path' => $this->filePath,
             'file_name' => $this->fileName,
