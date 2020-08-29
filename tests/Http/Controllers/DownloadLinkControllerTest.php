@@ -83,16 +83,4 @@ class DownloadLinkControllerTest extends TestCase
 
         $this->get(route('download-link.download-route', $link))->assertStatus(403);
     }
-
-    /** @test */
-    public function downloads_the_file_successfully()
-    {
-        Storage::fake('public')->put('example.txt', 'This is a test file');
-
-        $link = DownloadLinkGenerator::disk('public')->filePath('example.txt')->generate();
-
-        $this->get(route('download-link.download-route', $link))
-            ->assertStatus(200)
-            ->assertHeader('Content-Type', 'text/plain');
-    }
 }
