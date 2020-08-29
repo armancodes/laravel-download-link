@@ -120,4 +120,20 @@ class DownloadLinkGeneratorTest extends TestCase
 
         $this->assertEquals(3, $ipAddressesCount);
     }
+
+    /** @test */
+    public function link_can_be_removed()
+    {
+        Storage::fake('public')->put('example.txt', 'This is a test file');
+
+        $this->assertEquals(0, DownloadLink::first());
+
+        $link = DownloadLinkGenerator::disk('public')->filePath('example.txt')->generate();
+
+        $this->assertEquals(1, DownloadLink::count());
+
+        DownloadLinkGenerator::delete($link);
+
+        $this->assertEquals(0, DownloadLink::count());
+    }
 }
