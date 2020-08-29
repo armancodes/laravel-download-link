@@ -1,8 +1,8 @@
 # Generate download links in your Laravel applications
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/armancodes/laravel-download-link.svg?style=flat-square)](https://packagist.org/packages/armancodes/laravel-download-link)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/armancodes/laravel-download-link)](https://packagist.org/packages/armancodes/laravel-download-link)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/armancodes/laravel-download-link/Tests?label=tests)](https://github.com/armancodes/laravel-download-link/actions?query=workflow%3ATests+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/armancodes/laravel-download-link.svg?style=flat-square)](https://packagist.org/packages/armancodes/laravel-download-link)
+[![Total Downloads](https://img.shields.io/packagist/dt/armancodes/laravel-download-link)](https://packagist.org/packages/armancodes/laravel-download-link)
 
 This package allows you to generate download links for files.
 
