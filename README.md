@@ -1,6 +1,7 @@
 # Generate download links in your Laravel applications
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/armancodes/laravel-download-link)](https://packagist.org/packages/armancodes/laravel-download-link)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/quality/g/armancodes/laravel-download-link)](https://scrutinizer-ci.com/g/armancodes/laravel-download-link)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/armancodes/laravel-download-link/Tests?label=tests)](https://github.com/armancodes/laravel-download-link/actions?query=workflow%3ATests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/armancodes/laravel-download-link)](https://packagist.org/packages/armancodes/laravel-download-link)
 
