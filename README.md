@@ -124,6 +124,12 @@ DownloadLink::delete('link');
 DownloadLink::delete('zkTu70fieUFZLGMoEP95l1RQfFj5zCOqHlM0XBTnc6ZaZTtm4GY5xPXGGLzLEAVe');
 ```
 
+You may delete the expired links in the database using the command below:
+
+```bash
+php artisan download-links:remove-expired
+```
+
 ## Testing
 
 ``` bash
